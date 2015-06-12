@@ -107,6 +107,10 @@ class App extends React.Component {
 
         <button onClick={this.inc1.bind(this)}>+1</button>
         <button onClick={this.dec1.bind(this)}>-1</button>
+        <p style={{position: 'fixed', 'bottom': '10px'}}>
+          Source code can be found at <a href='https://github.com/georgeOsdDev/react-notification-badge/tree/master/example'>GitHub</a>
+        </p>
+
       </div>
     )
   }
