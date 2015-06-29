@@ -23,6 +23,7 @@ npm install --save react-notification-badge
 ```javascript
 NotificationBadge.propTypes = {
   count: React.PropTypes.number,
+  label: React.PropTypes.string,
   containerStyle: React.PropTypes.object,
   style: React.PropTypes.object,
   className: React.PropTypes.string,
@@ -32,6 +33,8 @@ NotificationBadge.propTypes = {
 ```
 
   * `count`: Badge count, if `count < 1`, badge will not shown.
+
+  * `label`: Badge label will be rendered instead of count.
 
   * `containerStyle`: custom style of container
 

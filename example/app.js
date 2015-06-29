@@ -103,6 +103,15 @@ class App extends React.Component {
             <td style={title}>Custome style</td>
           </tr>
 
+          <tr>
+            <td>
+              <div style={container}>
+                <NotificationBadge label='!' count={this.state.count} effect={Effect.SCALE} />
+              </div>
+            </td>
+            <td style={title}>Label badge</td>
+          </tr>
+
         </table>
 
         <button onClick={this.inc1.bind(this)}>+1</button>
