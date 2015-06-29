@@ -29,6 +29,14 @@ describe('Test of NotificationBadge', () => {
     });
   });
 
+  describe('test of rendered element with label', () =>{
+    it('should not render element with label and className', function () {
+      component = TestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={1} label='label'/>);
+      const badge = TestUtils.findRenderedDOMComponentWithClass(component, 'myBadge');
+      expect(React.findDOMNode(badge).textContent).to.be.eql('label');
+    });
+  });
+
   describe('test of rendered element', () =>{
     it('should not render element when count = 0', function () {
       component = TestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={0}/>);
