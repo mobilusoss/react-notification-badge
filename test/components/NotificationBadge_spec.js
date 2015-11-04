@@ -1,10 +1,12 @@
 'use strict';
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
+import ReactTestUtils from 'react-addons-test-utils';
 import chai from 'chai';
 let expect = chai.expect;
 import NotificationBadge from '../../lib/components/NotificationBadge';
 import Effect from '../../lib/components/Effect';
-const {TestUtils} = React.addons;
+
 
 describe('Test of NotificationBadge', () => {
 
@@ -15,7 +17,7 @@ describe('Test of NotificationBadge', () => {
 
   describe('test of properties', () =>{
     it('should have default properties', function () {
-      component = TestUtils.renderIntoDocument(<NotificationBadge />);
+      component = ReactTestUtils.renderIntoDocument(<NotificationBadge />);
       expect(component.props.count).to.be.eql(0);
       expect(component.props.style).to.be.empty;
     });
@@ -23,24 +25,24 @@ describe('Test of NotificationBadge', () => {
 
   describe('test of rendered element', () =>{
     it('should render element with count and className', function () {
-      component = TestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={10}/>);
-      const badge = TestUtils.findRenderedDOMComponentWithClass(component, 'myBadge');
-      expect(React.findDOMNode(badge).textContent).to.be.eql('10');
+      component = ReactTestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={10}/>);
+      const badge = ReactTestUtils.findRenderedDOMComponentWithClass(component, 'myBadge');
+      expect(ReactDom.findDOMNode(badge).textContent).to.be.eql('10');
     });
   });
 
   describe('test of rendered element with label', () =>{
     it('should not render element with label and className', function () {
-      component = TestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={1} label='label'/>);
-      const badge = TestUtils.findRenderedDOMComponentWithClass(component, 'myBadge');
-      expect(React.findDOMNode(badge).textContent).to.be.eql('label');
+      component = ReactTestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={1} label='label'/>);
+      const badge = ReactTestUtils.findRenderedDOMComponentWithClass(component, 'myBadge');
+      expect(ReactDom.findDOMNode(badge).textContent).to.be.eql('label');
     });
   });
 
   describe('test of rendered element', () =>{
     it('should not render element when count = 0', function () {
-      component = TestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={0}/>);
-      const badge = TestUtils.scryRenderedDOMComponentsWithClass(component, 'myBadge');
+      component = ReactTestUtils.renderIntoDocument(<NotificationBadge className={'myBadge'} count={0}/>);
+      const badge = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'myBadge');
       expect(badge).to.be.length(0);
     });
   });
@@ -50,22 +52,22 @@ describe('Test of NotificationBadge', () => {
   //   let container = document.createElement('div');
   //   document.body.appendChild(container);
   //   beforeEach(function (done) {
-  //     React.render(<NotificationBadge className={'myBadge'} count={10} duration={1000} effect={Effect.SCALE}/>, container, function(){
+  //     ReactDom.render(<NotificationBadge className={'myBadge'} count={10} duration={1000} effect={Effect.SCALE}/>, container, function(){
   //       component = this;
   //       done();
   //     });
   //   });
   //
   //   afterEach(function () {
-  //     React.unmountComponentAtNode(container);
+  //     ReactDom.unmountComponentAtNode(container);
   //   });
   //
   //   it('should have effect with specified duration', function (done) {
-  //     const badge = TestUtils.findRenderedDOMComponentWithClass(component, 'myBadge');
-  //     console.log(React.findDOMNode(badge).style);
-  //     expect(React.findDOMNode(badge).style.transform).to.be.eql('scale(1.8, 1.8)');
+  //     const badge = ReactTestUtils.findRenderedDOMComponentWithClass(component, 'myBadge');
+  //     console.log(ReactDom.findDOMNode(badge).style);
+  //     expect(ReactDom.findDOMNode(badge).style.transform).to.be.eql('scale(1.8, 1.8)');
   //     setTimeout(() => {
-  //       expect(React.findDOMNode(badge).style.transform).to.be.eql('scale(1.0, 1.0)');
+  //       expect(ReactDom.findDOMNode(badge).style.transform).to.be.eql('scale(1.0, 1.0)');
   //       done();
   //     }, 1200);
   //   });
