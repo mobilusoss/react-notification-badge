@@ -1,4 +1,5 @@
 'use strict';
+require("babel-polyfill");
 import React from 'react';
 import ReactDom from 'react-dom';
 import ReactTestUtils from 'react-addons-test-utils';
