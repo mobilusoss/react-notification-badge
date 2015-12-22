@@ -1,6 +1,7 @@
 'use strict';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
 import NotificationBadge  from '../index.js';
 import {Effect} from '../index.js';
 
@@ -43,66 +44,98 @@ class App extends React.Component {
     let title = {
       width: '100px'
     }
-
     return (
 
       <div>
         <table>
-          <tr>
-            <td>
-              <div style={container}>
-                <NotificationBadge count={this.state.count} className={'abc'} effect={Effect.ROTATE_X}/>
-              </div>
-            </td>
-            <td style={title}>Effect.ROTATE_X</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} className={'abc'} effect={Effect.ROTATE_X}/>
+                </div>
+              </td>
+              <td style={title}>Effect.ROTATE_X</td>
+            </tr>
+            <tr>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.ROTATE_Y}/>
+                </div>
+              </td>
+              <td style={title}>Effect.ROTATE_Y</td>
+            </tr>
 
-          <tr>
-            <td>
-              <div style={container}>
-                <NotificationBadge count={this.state.count} effect={Effect.ROTATE_Y}/>
-              </div>
-            </td>
-            <td style={title}>Effect.ROTATE_Y</td>
-          </tr>
+            <tr>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE}/>
+                </div>
+              </td>
+              <td style={title}>Effect.SCALE</td>
+            </tr>
 
-          <tr>
-            <td>
-              <div style={container}>
-                <NotificationBadge count={this.state.count} effect={Effect.SCALE}/>
-              </div>
-            </td>
-            <td style={title}>Effect.SCALE</td>
-          </tr>
+            <tr>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={[null, null, {top:'-5px'}, {top:'0px'}]}/>
+                </div>
+              </td>
+              <td style={title}>Custome effect</td>
+            </tr>
+
+            <tr>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={15.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:15.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={30.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:30.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={45.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:45.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={60.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:60.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={120.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:120.0</td>
+            </tr>
 
 
-          <tr>
-            <td>
-              <div style={container}>
-                <NotificationBadge count={this.state.count} effect={[null, null, {top:'-5px'}, {top:'0px'}]}/>
-              </div>
-            </td>
-            <td style={title}>Custome effect</td>
-          </tr>
+            <tr>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} style={{color: 'green', backgroundColor:'yellow', top: '', left: '0', bottom: '0px', right: ''}}/>
+                </div>
+              </td>
+              <td style={title}>Custome style</td>
+            </tr>
 
-          <tr>
-            <td>
-              <div style={container}>
-                <NotificationBadge count={this.state.count} effect={Effect.SCALE} duration={100}/>
-              </div>
-            </td>
-            <td style={title}>Duration:100</td>
-          </tr>
-
-          <tr>
-            <td>
-              <div style={container}>
-                <NotificationBadge count={this.state.count} effect={Effect.SCALE} style={{color: 'green', backgroundColor:'yellow', top: '', left: '0', bottom: '0px', right: ''}}/>
-              </div>
-            </td>
-            <td style={title}>Custome style</td>
-          </tr>
-
+            <tr>
+              <td>
+                <div style={container}>
+                  <NotificationBadge label='!' count={this.state.count} effect={Effect.SCALE} />
+                </div>
+              </td>
+              <td style={title}>Label badge</td>
+            </tr>
+          </tbody>
         </table>
 
         <button onClick={this.inc1.bind(this)}>+1</button>
@@ -110,9 +143,10 @@ class App extends React.Component {
         <p style={{position: 'fixed', 'bottom': '10px'}}>
           Source code can be found at <a href='https://github.com/georgeOsdDev/react-notification-badge/tree/master/example'>GitHub</a>
         </p>
+
       </div>
     )
   }
 };
 
-React.render(<App/>, document.getElementById('out'));
+ReactDom.render(<App/>, document.getElementById('out'));
