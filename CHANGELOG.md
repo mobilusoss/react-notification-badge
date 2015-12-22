@@ -1,6 +1,8 @@
 ## Change Log
 
-### Ver 1.1.0 Next release
+### Ver 1.2.0 Next release
+
+### Ver 1.1.0
 
 * #6 [Publish transpiled code](https://github.com/georgeOsdDev/react-notification-badge/issues/6)
 * #8 [Use requestAnimationFrame](https://github.com/georgeOsdDev/react-notification-badge/issues/8)
