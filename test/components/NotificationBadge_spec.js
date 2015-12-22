@@ -5,8 +5,8 @@ import ReactDom from 'react-dom';
 import ReactTestUtils from 'react-addons-test-utils';
 import chai from 'chai';
 let expect = chai.expect;
-import NotificationBadge from '../../lib/components/NotificationBadge';
-import Effect from '../../lib/components/Effect';
+import NotificationBadge from '../../src/components/NotificationBadge';
+import Effect from '../../src/components/Effect';
 
 
 describe('Test of NotificationBadge', () => {
