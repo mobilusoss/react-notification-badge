@@ -44,7 +44,6 @@ class App extends React.Component {
     let title = {
       width: '100px'
     }
-
     return (
 
       <div>
@@ -58,7 +57,6 @@ class App extends React.Component {
               </td>
               <td style={title}>Effect.ROTATE_X</td>
             </tr>
-
             <tr>
               <td>
                 <div style={container}>
@@ -89,11 +87,36 @@ class App extends React.Component {
             <tr>
               <td>
                 <div style={container}>
-                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} duration={100}/>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={15.0}/>
                 </div>
               </td>
-              <td style={title}>Duration:100</td>
+              <td style={title}>frameLength:15.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={30.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:30.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={45.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:45.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={60.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:60.0</td>
+              <td>
+                <div style={container}>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} frameLength={120.0}/>
+                </div>
+              </td>
+              <td style={title}>frameLength:120.0</td>
             </tr>
+
 
             <tr>
               <td>
