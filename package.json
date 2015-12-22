@@ -1,6 +1,6 @@
 {
   "name": "react-notification-badge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple notification badge react component",
   "main": "index.js",
   "scripts": {
