@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -44,7 +44,7 @@
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<div class="highlight highlight-bash"><pre>npm install --save react-notification-badge</pre></div>
+<div class="highlight highlight-source-shell"><pre>npm install --save react-notification-badge</pre></div>
 
 <h2>
 <a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
@@ -56,17 +56,19 @@
 <h4>
 <a id="props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h4>
 
-<div class="highlight highlight-javascript"><pre>NotificationBadge.propTypes <span class="pl-k">=</span> {
-  count<span class="pl-k">:</span> React.PropTypes.number,
-  containerStyle<span class="pl-k">:</span> React.PropTypes.<span class="pl-c1">object</span>,
-  style<span class="pl-k">:</span> React.PropTypes.<span class="pl-c1">object</span>,
-  className<span class="pl-k">:</span> React.PropTypes.string,
-  effect<span class="pl-k">:</span> React.PropTypes.array,
-  duration<span class="pl-k">:</span> React.PropTypes.number
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">NotificationBadge</span>.<span class="pl-smi">propTypes</span> <span class="pl-k">=</span> {
+  count<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>,
+  label<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>,
+  containerStyle<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-c1">object</span>,
+  style<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-c1">object</span>,
+  className<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>,
+  effect<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">array</span>,
+  duration<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>
 };</pre></div>
 
 <ul>
 <li><p><code>count</code>: Badge count, if <code>count &lt; 1</code>, badge will not shown.</p></li>
+<li><p><code>label</code>: Badge label will be rendered instead of count.</p></li>
 <li><p><code>containerStyle</code>: custom style of container</p></li>
 <li><p><code>style</code>: custom style of badge</p></li>
 <li><p><code>className</code>: className of badge</p></li>
@@ -74,10 +76,10 @@
 <p><code>effect</code>: effect of notification.
 effect array should be <code>[string, string, object, object]</code>.</p>
 
-<p><code>effect[0]</code> will be applied to <code>transform</code> on <code>componentWillEnter</code>.
-<code>effect[1]</code> will be applied to <code>transform</code> on <code>componentDidEnter</code>.
-<code>effect[2]</code> will be applied as <code>style[key] = value</code> on <code>componentWillEnter</code>.
-<code>effect[3]</code> will be applied to <code>style[key] = value</code> on <code>componentDidEnter</code>.</p>
+<p><code>effect[0]</code> will be applied to <code>transform</code> on first frame.
+<code>effect[1]</code> will be applied to <code>transform</code> on <code>frameLength</code>.
+<code>effect[2]</code> will be applied as <code>style[key] = value</code> on first frame.
+<code>effect[3]</code> will be applied to <code>style[key] = value</code> on <code>frameLength</code>.</p>
 
 <p>Pre defined effect is available as</p>
 
@@ -87,29 +89,29 @@ effect array should be <code>[string, string, object, object]</code>.</p>
 <li><code>Effect.SCALE</code></li>
 </ul>
 </li>
-<li><p><code>duration</code>: duration between <code>componentWillEnter</code> and <code>componentDidEnter</code> (default 500)</p></li>
+<li><p><code>frameLength</code>: Frame length for <code>effect[1]</code> and <code>effect[3]</code> (default 30.0, 60.0fps/30.0 = 0.5 second)</p></li>
 </ul>
 
 <h2>
 <a id="usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage example</h2>
 
-<div class="highlight highlight-javascript"><pre>
-<span class="pl-k">import</span> NotificationBadge <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-notification-badge<span class="pl-pds">'</span></span>;
-<span class="pl-k">import</span> {Effect} <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-notification-badge<span class="pl-pds">'</span></span>;
+<div class="highlight highlight-source-js"><pre>
+<span class="pl-k">import</span> <span class="pl-smi">NotificationBadge</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-notification-badge<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> {<span class="pl-smi">Effect</span>} <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-notification-badge<span class="pl-pds">'</span></span>;
 
 <span class="pl-k">&lt;</span>div style<span class="pl-k">=</span>{container}<span class="pl-k">&gt;</span>
-  <span class="pl-k">&lt;</span>NotificationBadge count<span class="pl-k">=</span>{<span class="pl-v">this</span>.state.count} effect<span class="pl-k">=</span>{Effect.SCALE}/<span class="pl-k">&gt;</span>
-<span class="pl-k">&lt;</span>/div<span class="pl-k">&gt;</span></pre></div>
+  <span class="pl-k">&lt;</span>NotificationBadge count<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">count</span>} effect<span class="pl-k">=</span>{<span class="pl-smi">Effect</span>.<span class="pl-c1">SCALE</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span></pre></div>
 
 <p>See  <a href="https://github.com/georgeOsdDev/react-notification-badge/tree/develop/example">example</a></p>
 
-<div class="highlight highlight-bash"><pre>npm install
+<div class="highlight highlight-source-shell"><pre>npm install
 npm run start:example</pre></div>
 
 <h2>
 <a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
 
-<div class="highlight highlight-bash"><pre>npm <span class="pl-c1">test</span></pre></div>
+<div class="highlight highlight-source-shell"><pre>npm <span class="pl-c1">test</span></pre></div>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/georgeOsdDev">georgeOsdDev</a></p>
