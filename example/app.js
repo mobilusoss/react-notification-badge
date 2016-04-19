@@ -121,7 +121,7 @@ class App extends React.Component {
             <tr>
               <td>
                 <div style={container}>
-                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} style={{color: 'green', backgroundColor:'yellow', top: '', left: '0', bottom: '0px', right: ''}}/>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} style={{color: 'green', backgroundColor:'yellow', top: '', left: '0px', bottom: '0px', right: ''}}/>
                 </div>
               </td>
               <td style={title}>Custome style</td>
