@@ -2,6 +2,8 @@
 
 ### Ver 1.2.0 Next release
 
+* #10 [Update React from v0.14.x to v15.x](https://github.com/georgeOsdDev/react-notification-badge/issues/10)
+
 ### Ver 1.1.0
 
 * #6 [Publish transpiled code](https://github.com/georgeOsdDev/react-notification-badge/issues/6)
