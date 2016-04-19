@@ -4,27 +4,27 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Effect from './Effect';
 
-const requestAnimationFrame = (() => {
-      return  window.requestAnimationFrame       ||
-              window.webkitRequestAnimationFrame ||
-              window.mozRequestAnimationFrame    ||
-              window.oRequestAnimationFrame      ||
-              window.msRequestAnimationFrame     ||
-              function(callback){
-                window.setTimeout(callback, 1000.0 / 60.0);
-              };
-    })();
+const requestAnimationFrame = (() =>
+  window.requestAnimationFrame ||
+  window.webkitRequestAnimationFrame ||
+  window.mozRequestAnimationFrame ||
+  window.oRequestAnimationFrame ||
+  window.msRequestAnimationFrame ||
+  function cb(callback) {
+    window.setTimeout(callback, 1000.0 / 60.0);
+  }
+)();
 
-const cancelAnimationFrame = (() => {
-      return  window.cancelAnimationFrame       ||
-              window.webkitCancelAnimationFrame ||
-              window.mozCancelAnimationFrame    ||
-              window.oCancelAnimationFrame      ||
-              window.msCancelAnimationFrame     ||
-              function(timer){
-                window.clearTimeout(timer);
-              };
-    })();
+const cancelAnimationFrame = (() =>
+  window.cancelAnimationFrame ||
+  window.webkitCancelAnimationFrame ||
+  window.mozCancelAnimationFrame ||
+  window.oCancelAnimationFrame ||
+  window.msCancelAnimationFrame ||
+  function cb(timer) {
+    window.clearTimeout(timer);
+  }
+)();
 
 const now = window.performance && (performance.now ||
                                   performance.mozNow ||
@@ -32,63 +32,80 @@ const now = window.performance && (performance.now ||
                                   performance.oNow ||
                                   performance.webkitNow);
 
-let getTime = () => {
-  return ( now && now.call(performance)) || (new Date.now());
-}
+const getTime = () => (now && now.call(performance)) || Date.now();
 
 class AnimationCounter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
     };
+    this.node = undefined;
   }
 
-  componentDidMount(){
+  componentDidMount() {
     if (this.props.count > 0) {
+      this.node = ReactDom.findDOMNode(this.refs.badge);
       this.animate();
     }
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     if (this.props.count > prevProps.count) {
+      this.node = ReactDom.findDOMNode(this.refs.badge);
       this.animate();
     }
   }
 
-  animate(){
-    let badge = ReactDom.findDOMNode(this.refs.badge);
-    badge.style['-moz-transform'] = badge.style['-webkit-transform'] = badge.style['-o-transform'] = badge.style['-ms-transform'] = badge.style.transform = this.props.effect[0];
+  animate() {
+    const style0 = {
+      '-moz-transform': this.props.effect[0],
+      '-webkit-transform': this.props.effect[0],
+      '-o-transform': this.props.effect[0],
+      transform: this.props.effect[0],
+    };
+    this.attachStyle(style0);
     if (this.props.effect[2]) {
-      this.attachStyle(badge, this.props.effect[2]);
+      this.attachStyle(this.props.effect[2]);
     }
 
-    let startTime = getTime();
+    const startTime = getTime();
     let timer;
-    let waitOrFinish = () => {
-        let lastTime = getTime();
-        let frame = Math.floor((lastTime - startTime) / (1000.0 / 60.0) % this.props.frameLength);
-        if (frame === this.props.frameLength - 1){
-          cancelAnimationFrame(timer);
-          badge.style['-moz-transform'] = badge.style['-webkit-transform'] = badge.style['-o-transform'] = badge.style['-ms-transform'] = badge.style.transform = this.props.effect[1];
-          if (this.props.effect[3]) {
-            this.attachStyle(badge, this.props.effect[3]);
-          }
-        } else {
-          timer = requestAnimationFrame(waitOrFinish);
+    const waitOrFinish = () => {
+      const lastTime = getTime();
+      const frame = Math.floor((lastTime - startTime) / (1000.0 / 60.0) % this.props.frameLength);
+      if (frame === this.props.frameLength - 1) {
+        cancelAnimationFrame(timer);
+        const style1 = {
+          '-moz-transform': this.props.effect[1],
+          '-webkit-transform': this.props.effect[1],
+          '-o-transform': this.props.effect[1],
+          transform: this.props.effect[1],
+        };
+        this.attachStyle(style1);
+        if (this.props.effect[3]) {
+          this.attachStyle(this.props.effect[3]);
         }
+      } else {
+        timer = requestAnimationFrame(waitOrFinish);
+      }
     };
     waitOrFinish();
   }
 
-  attachStyle(node, style){
-    for (let key in style) {
-      node.style[key] = style[key];
+  attachStyle(style) {
+    for (const key in style) {
+      if (style.hasOwnProperty(key)) {
+        this.node.style[key] = style[key];
+      }
     }
   }
 
   render() {
-    let value = this.props.label || this.props.count;
-    return (<span ref='badge' style={this.props.style} className={this.props.className}>{value}</span>);
+    const value = this.props.label || this.props.count;
+    return (
+      <span ref="badge" style={this.props.style} className={this.props.className}>
+        {value}
+      </span>);
   }
 }
 
@@ -98,7 +115,7 @@ AnimationCounter.propTypes = {
   style: React.PropTypes.object,
   effect: React.PropTypes.array,
   frameLength: React.PropTypes.number,
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
 };
 
 AnimationCounter.defaultProps = {
@@ -106,7 +123,7 @@ AnimationCounter.defaultProps = {
   label: null,
   style: {},
   effect: Effect.SCALE,
-  frameLength: 30.0
+  frameLength: 30.0,
 };
 
 export default AnimationCounter;
