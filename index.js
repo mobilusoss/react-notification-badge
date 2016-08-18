@@ -1,5 +1,4 @@
-import NotificationBadge from './lib/components/NotificationBadge';
-import Effect from './lib/components/Effect';
+var NotificationBadge = require('./lib/components/NotificationBadge').default;
 
-export default NotificationBadge;
-export { Effect };
+NotificationBadge.Effect = require('./lib/components/Effect').default;
+module.exports = NotificationBadge;
