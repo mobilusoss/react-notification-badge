@@ -2,8 +2,8 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import NotificationBadge  from '../index.js';
-import {Effect} from '../index.js';
+import NotificationBadge  from '../lib/index.js';
+import {Effect} from '../lib/index.js';
 
 //allow react dev tools work
 window.React = React;
@@ -121,7 +121,7 @@ class App extends React.Component {
             <tr>
               <td>
                 <div style={container}>
-                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} style={{color: 'green', backgroundColor:'yellow', top: '', left: '0', bottom: '0px', right: ''}}/>
+                  <NotificationBadge count={this.state.count} effect={Effect.SCALE} style={{color: 'green', backgroundColor:'yellow', top: '', left: '0px', bottom: '0px', right: ''}}/>
                 </div>
               </td>
               <td style={title}>Custome style</td>
