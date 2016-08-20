@@ -1,6 +1,10 @@
 ## Change Log
 
-### Ver 1.2.0 Next release
+### Ver 1.3.0
+
+* #14 [Fix import error](https://github.com/georgeOsdDev/react-notification-badge/issues/14)
+
+### Ver 1.2.0
 
 * #10 [Update React from v0.14.x to v15.x](https://github.com/georgeOsdDev/react-notification-badge/issues/10)
 

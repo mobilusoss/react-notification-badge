@@ -2,8 +2,8 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import NotificationBadge  from '../index.js';
-import {Effect} from '../index.js';
+import NotificationBadge  from '../lib/index.js';
+import {Effect} from '../lib/index.js';
 
 //allow react dev tools work
 window.React = React;
