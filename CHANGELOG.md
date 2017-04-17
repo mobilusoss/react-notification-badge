@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 1.3.1
+
+* #18 [Support server side rendering](https://github.com/georgeOsdDev/react-notification-badge/issues/18)
+
 ### Ver 1.3.0
 
 * #14 [Fix import error](https://github.com/georgeOsdDev/react-notification-badge/issues/14)
