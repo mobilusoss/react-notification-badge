@@ -4,33 +4,47 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Effect from './Effect';
 
-const requestAnimationFrame = (() =>
-  window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.oRequestAnimationFrame ||
-  window.msRequestAnimationFrame ||
-  function cb(callback) {
-    window.setTimeout(callback, 1000.0 / 60.0);
-  }
-)();
+const defaultSetTimeout = (callback) => {
+  setTimeout(callback, 1000.0 / 60.0)
+}
+const defaultClearTimeout = (timer) => {
+  clearTimeout(timer);
+}
 
-const cancelAnimationFrame = (() =>
-  window.cancelAnimationFrame ||
-  window.webkitCancelAnimationFrame ||
-  window.mozCancelAnimationFrame ||
-  window.oCancelAnimationFrame ||
-  window.msCancelAnimationFrame ||
-  function cb(timer) {
-    window.clearTimeout(timer);
+const requestAnimationFrame = (() => {
+  if (typeof window !== 'undefined') {
+    return defaultSetTimeout;
+  } else {
+    return window.requestAnimationFrame ||
+           window.webkitRequestAnimationFrame ||
+           window.mozRequestAnimationFrame ||
+           window.oRequestAnimationFrame ||
+           window.msRequestAnimationFrame ||
+           defaultSetTimeout;
   }
-)();
+})();
 
-const now = window.performance && (performance.now ||
-                                  performance.mozNow ||
-                                  performance.msNow ||
-                                  performance.oNow ||
-                                  performance.webkitNow);
+const cancelAnimationFrame = (() => {
+  if (typeof window !== 'undefined') {
+    return defaultClearTimeout;
+  } else {
+    return window.cancelAnimationFrame ||
+           window.webkitCancelAnimationFrame ||
+           window.mozCancelAnimationFrame ||
+           window.oCancelAnimationFrame ||
+           window.msCancelAnimationFrame ||
+           defaultClearTimeout;
+  }
+})();
+
+const now = typeof window !== undefined &&
+            window.performance && (
+              performance.now ||
+              performance.mozNow ||
+              performance.msNow ||
+              performance.oNow ||
+              performance.webkitNow
+            );
 
 const getTime = () => (now && now.call(performance)) || Date.now();
 
