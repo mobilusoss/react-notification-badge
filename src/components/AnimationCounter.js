@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
+import PropTypes from 'prop-types';
 import Effect from './Effect';
 
 const defaultSetTimeout = (callback) => {
@@ -124,12 +125,12 @@ class AnimationCounter extends React.Component {
 }
 
 AnimationCounter.propTypes = {
-  count: React.PropTypes.number,
-  label: React.PropTypes.string,
-  style: React.PropTypes.object,
-  effect: React.PropTypes.array,
-  frameLength: React.PropTypes.number,
-  className: React.PropTypes.string,
+  count: PropTypes.number,
+  label: PropTypes.string,
+  style: PropTypes.object,
+  effect: PropTypes.array,
+  frameLength: PropTypes.number,
+  className: PropTypes.string,
 };
 
 AnimationCounter.defaultProps = {

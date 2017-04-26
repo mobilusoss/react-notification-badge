@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import AnimationCounter from './AnimationCounter';
 
 const styles = {
@@ -79,14 +80,14 @@ class NotificationBadge extends React.Component {
 }
 
 NotificationBadge.propTypes = {
-  containerStyle: React.PropTypes.object,
-  count: React.PropTypes.number,
-  label: React.PropTypes.string,
-  style: React.PropTypes.object,
-  className: React.PropTypes.string,
-  effect: React.PropTypes.array,
-  fps: React.PropTypes.number,
-  frameLength: React.PropTypes.number,
+  containerStyle: PropTypes.object,
+  count: PropTypes.number,
+  label: PropTypes.string,
+  style: PropTypes.object,
+  className: PropTypes.string,
+  effect: PropTypes.array,
+  fps: PropTypes.number,
+  frameLength: PropTypes.number,
 };
 
 NotificationBadge.defaultProps = {
