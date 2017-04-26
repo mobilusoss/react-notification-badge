@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 1.3.2
+
+* #22 [Use the prop-types package from npm](https://github.com/georgeOsdDev/react-notification-badge/issues/22)
+
 ### Ver 1.3.1
 
 * #18 [Support server side rendering](https://github.com/georgeOsdDev/react-notification-badge/issues/18)
