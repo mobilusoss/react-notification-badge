@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 1.3.3
+
+* #25 [There's a logical mistake in 'AnimationCounter.js' file!](https://github.com/georgeOsdDev/react-notification-badge/issues/25)
+
 ### Ver 1.3.2
 
 * #22 [Use the prop-types package from npm](https://github.com/georgeOsdDev/react-notification-badge/issues/22)
