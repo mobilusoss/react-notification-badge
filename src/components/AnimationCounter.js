@@ -13,7 +13,7 @@ const defaultClearTimeout = (timer) => {
 }
 
 const requestAnimationFrame = (() => {
-  if (typeof window !== 'undefined') {
+  if (typeof window === 'undefined') {
     return defaultSetTimeout;
   } else {
     return window.requestAnimationFrame ||
@@ -26,7 +26,7 @@ const requestAnimationFrame = (() => {
 })();
 
 const cancelAnimationFrame = (() => {
-  if (typeof window !== 'undefined') {
+  if (typeof window === 'undefined') {
     return defaultClearTimeout;
   } else {
     return window.cancelAnimationFrame ||
@@ -38,7 +38,7 @@ const cancelAnimationFrame = (() => {
   }
 })();
 
-const now = typeof window !== undefined &&
+const now = typeof window !== 'undefined' &&
             window.performance && (
               performance.now ||
               performance.mozNow ||
