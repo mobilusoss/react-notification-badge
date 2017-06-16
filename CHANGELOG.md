@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 1.3.4
+
+* #28 [React is peer dependency](https://github.com/georgeOsdDev/react-notification-badge/issues/28)
+
 ### Ver 1.3.3
 
 * #25 [There's a logical mistake in 'AnimationCounter.js' file!](https://github.com/georgeOsdDev/react-notification-badge/issues/25)
