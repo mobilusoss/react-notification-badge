@@ -37,8 +37,8 @@ module.exports = function(config) {
         ['babelify', {
             'compact': false,
             'presets': [
-              'es2015',
-              'react'
+              "@babel/preset-env",
+              "@babel/preset-react"
             ]
           }
         ]

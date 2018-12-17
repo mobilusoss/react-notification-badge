@@ -1,8 +1,8 @@
 'use strict';
-require("babel-polyfill");
+require("@babel/polyfill");
 import React from 'react';
 import ReactDom from 'react-dom';
-import ReactTestUtils from 'react-addons-test-utils';
+import ReactTestUtils from 'react-dom/test-utils';
 import chai from 'chai';
 let expect = chai.expect;
 import NotificationBadge from '../../src/components/NotificationBadge';
