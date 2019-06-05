@@ -1,4 +1,4 @@
-# react-notification-badge [![Build Status](https://travis-ci.org/georgeOsdDev/react-notification-badge.svg?branch=develop)](https://travis-ci.org/georgeOsdDev/react-notification-badge) [![npm version](https://badge.fury.io/js/react-notification-badge.svg)](http://badge.fury.io/js/react-notification-badge)
+# react-notification-badge [![Build Status](https://travis-ci.org/mobilusoss/react-notification-badge.svg?branch=develop)](https://travis-ci.org/mobilusoss/react-notification-badge) [![npm version](https://badge.fury.io/js/react-notification-badge.svg)](http://badge.fury.io/js/react-notification-badge)
 
 Simple notification badge react component
 
@@ -6,7 +6,7 @@ Simple notification badge react component
 
 ## Demo
 
-[View Demo](http://georgeosddev.github.io/react-notification-badge/example/)
+[View Demo](http://mobilusoss.github.io/react-notification-badge/example/)
 
 ## Installation
 
@@ -69,7 +69,7 @@ import {Effect} from 'react-notification-badge';
 </div>
 ```
 
-See  [example](https://github.com/georgeOsdDev/react-notification-badge/tree/develop/example)
+See  [example](https://github.com/mobilusoss/react-notification-badge/tree/develop/example)
 
 ```bash
 npm install
@@ -81,3 +81,7 @@ npm run start:example
 ```bash
 npm test
 ```
+
+## Update dependencies
+
+Use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
