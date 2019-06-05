@@ -1,8 +1,16 @@
 ## Change Log
 
-### Ver 1.3.4
+### Ver 1.5.0
 
 * #34 [Change url from georgeosddev to mobilusoss](https://github.com/mobilusoss/react-notification-badge/issues/34)
+
+### Ver 1.4.0
+
+* Update dependencies
+
+### Ver 1.3.4
+
+* #28 [React is peer dependency](https://github.com/georgeOsdDev/react-notification-badge/issues/28)
 
 ### Ver 1.3.3
 
