@@ -81,3 +81,7 @@ npm run start:example
 ```bash
 npm test
 ```
+
+## Update dependencies
+
+Use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)

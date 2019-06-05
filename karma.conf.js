@@ -34,14 +34,7 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       transform: [
-        ['babelify', {
-            'compact': false,
-            'presets': [
-              "@babel/preset-env",
-              "@babel/preset-react"
-            ]
-          }
-        ]
+        ['babelify']
       ]
     },
 

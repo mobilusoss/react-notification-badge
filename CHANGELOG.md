@@ -3,6 +3,7 @@
 ### Ver 1.5.0
 
 * #34 [Change url from georgeosddev to mobilusoss](https://github.com/mobilusoss/react-notification-badge/issues/34)
+* Update dependencies, add core-js@3
 
 ### Ver 1.4.0
 
