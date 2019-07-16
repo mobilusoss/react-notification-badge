@@ -1,4 +1,4 @@
-# react-notification-badge [![Build Status](https://travis-ci.org/mobilusoss/react-notification-badge.svg?branch=develop)](https://travis-ci.org/mobilusoss/react-notification-badge) [![npm version](https://badge.fury.io/js/react-notification-badge.svg)](http://badge.fury.io/js/react-notification-badge)
+# react-notification-badge [![Build Status](https://travis-ci.org/mobilusoss/react-notification-badge.svg?branch=develop)](https://travis-ci.org/mobilusoss/react-notification-badge) [![npm version](https://badge.fury.io/js/react-notification-badge.svg)](http://badge.fury.io/js/react-notification-badge) [![codebeat badge](https://codebeat.co/badges/85db9556-07c2-4119-a2d8-c1f5268d2554)](https://codebeat.co/projects/github-com-mobilusoss-react-notification-badge-master)
 
 Simple notification badge react component
 
