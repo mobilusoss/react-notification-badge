@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 1.5.1
+
+* Update dependencies, change @babel/env as `useBuiltIns:entry`
+
 ### Ver 1.5.0
 
 * #34 [Change url from georgeosddev to mobilusoss](https://github.com/mobilusoss/react-notification-badge/issues/34)
